@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="level_1">
+        <item>Facebook</item>
+        <item>Netflix</item>
+        <item>Apple</item>
+        <item>Adidas</item>
+        <item>Youtube</item>
+        <item>Android</item>
+        <item>Monster</item>
+        <item>Tiktok</item>
+        <item>Nike</item>
+        <item>Twitter</item>
+    </string-array>
+    <string-array name="level_2">
+        <item>Shell</item>
+        <item>Instagram</item>
+        <item>Microsoft</item>
+        <item>Puma</item>
+    </string-array>
+
+</resources>
