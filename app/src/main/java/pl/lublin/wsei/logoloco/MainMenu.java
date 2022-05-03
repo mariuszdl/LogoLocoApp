@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -16,7 +17,8 @@ import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
 
-    Button btnLevel1, btnLevel2, btnReset;
+    Button btnLevel1, btnLevel2;
+    ImageView btnReset;
 
     public static TextView textView;
 

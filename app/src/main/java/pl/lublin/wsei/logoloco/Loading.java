@@ -5,9 +5,11 @@ import static pl.lublin.wsei.logoloco.MemoryService.loadStatus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ProgressBar;
+import android.widget.VideoView;
 
 /**
  * Klasa obsługująca ekran ładowania aplikacji
@@ -16,13 +18,14 @@ import android.widget.ProgressBar;
 public class Loading extends AppCompatActivity {
 
     /* ProgressBar */
-    ProgressBar progressBar;
+    VideoView mVideoView;
+    VideoView mVideoViewLogo;
 
     /* Timer */
     CountDownTimer countDownTimer;
 
     /* Długość wyświetlania ekranu ładowania */
-    int time = 1000;
+    int time = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,24 @@ public class Loading extends AppCompatActivity {
         /* Pobranie danych z pamięci telefonu */
         loadStatus(Loading.this);
 
-        progressBar = findViewById(R.id.progressBar);
-        countDownTimer =new CountDownTimer(time,100) {
+        mVideoView = (VideoView) findViewById(R.id.videoView);
+        mVideoViewLogo = (VideoView) findViewById(R.id.videoViewLogo);
+
+        String uriPath = "android.resource://pl.lublin.wsei.logoloco/" + R.raw.loading_anim;
+        String uriPath3 = "android.resource://pl.lublin.wsei.logoloco/" + R.raw.logo_anim;
+        Uri uri2 = Uri.parse(uriPath);
+        mVideoView.setVideoURI(uri2);
+        mVideoView.requestFocus();
+        mVideoView.setZOrderOnTop(true);
+        mVideoView.start();
+
+        Uri uri3 = Uri.parse(uriPath3);
+        mVideoViewLogo.setVideoURI(uri3);
+        mVideoViewLogo.requestFocus();
+        mVideoViewLogo.setZOrderOnTop(true);
+        mVideoViewLogo.start();
+
+        countDownTimer =new CountDownTimer(time,time) {
 
             @Override
             public void onTick(long millisUntilFinished) {}
@@ -45,8 +64,8 @@ public class Loading extends AppCompatActivity {
                 startActivity(new Intent(Loading.this, MainMenu.class));
                 finish();
 
-                /* Nadpisanie domyślnej animacji zmiany aktywności */
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                /* Nadpisanie domyślnej animacji zmiany aktywności */
+//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         };
 
