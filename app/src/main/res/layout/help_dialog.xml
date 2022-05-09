@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
@@ -18,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/menu_background">
+            android:background="#AE8953">
 
             <TextView
                 android:id="@+id/textView3"
@@ -26,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
-                android:text="Jakiej podpowiedzi chcesz użyć?"
+                android:text="@string/ac_helpdialog_quest"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="#000"
@@ -43,7 +42,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/help_variant_background"
                 android:padding="10dp"
-                android:text="Odkryj jedną literę"
+                android:text="@string/ac_helpdialog_show_one"
                 android:textColor="#FFF"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +55,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/money_background"
-                android:contentDescription="Money background"
+                android:contentDescription="@string/ac_helpdialog_cd_money_background"
                 app:layout_constraintBottom_toBottomOf="@+id/showOneHelp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/showOneHelp" />
@@ -69,15 +68,15 @@
                 android:src="@drawable/ic_money"
                 app:layout_constraintBottom_toBottomOf="@+id/showOneHelp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/showOneHelp" />
+                app:layout_constraintTop_toTopOf="@+id/showOneHelp"
+                android:contentDescription="@string/ac_helpdialog_cd_money" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/showOneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="40"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -93,7 +92,7 @@
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/help_variant_background"
                 android:padding="10dp"
-                android:text="Pokaż odpowiedż"
+                android:text="@string/ac_helpdialog_show_answer"
                 android:textColor="#FFF"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +106,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/money_background"
-                android:contentDescription="Money background"
+                android:contentDescription="@string/ac_helpdialog_cd_money_background"
                 app:layout_constraintBottom_toBottomOf="@+id/showAnswerHelp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/showAnswerHelp" />
@@ -120,15 +119,15 @@
                 android:src="@drawable/ic_money"
                 app:layout_constraintBottom_toBottomOf="@+id/showAnswerHelp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="@+id/showAnswerHelp" />
+                app:layout_constraintTop_toTopOf="@+id/showAnswerHelp"
+                android:contentDescription="@string/ac_helpdialog_cd_money" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/showAnswerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="320"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"

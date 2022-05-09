@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,28 +7,32 @@
     android:id="@+id/mainLevelActivity"
     tools:context=".LevelActivity">
 
+    <!-- Górny panel -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#a77a37">
+        android:background="#a77a37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/backIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="Back"
             android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/ac_level_cd_back"/>
 
         <TextView
             android:id="@+id/currentLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Poziom X"
+            android:text="@string/ac_level_level_txt"
             android:textColor="#FFF"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -40,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
-            android:text="Pytanie x/Y"
+            android:text="@string/ac_level_quest_txt"
             android:textColor="#FFF"
             app:layout_constraintBottom_toBottomOf="@+id/backIcon"
             app:layout_constraintStart_toEndOf="@+id/backIcon"
@@ -60,18 +64,17 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="5dp"
-            android:contentDescription="Money icon"
             android:src="@drawable/ic_money"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintTop_toTopOf="@+id/view"
+            android:contentDescription="@string/ac_helpdialog_cd_money" />
 
         <TextView
             android:id="@+id/money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="100"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="@+id/view"
@@ -79,117 +82,113 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="70dp"
-        android:layout_above="@+id/helpPanel"
-        android:layout_below="@+id/constraintLayout"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" >
+        android:padding="100dp"
+        android:layout_margin="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNextLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:contentDescription="@string/ac_level_company_logo" />
 
+    <!-- Przycisk wyświetlający panel podpowiedzi -->
+    <ImageView
+        android:id="@+id/btnHelp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/help_background"
+        android:padding="5dp"
+        android:src="@drawable/idea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnNextLevel"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/ac_level_open_help_dialog" />
 
-        <!-- Logo -->
+    <!-- Przycisk usuwania wszystkich liter -->
+    <ImageView
+        android:id="@+id/btnClear"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/help_background"
+        android:padding="5dp"
+        android:src="@drawable/ic_clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnNextLevel"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/ac_level_clear_answerbox" />
 
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="100dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/helpPanel"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@id/answerLayoutOne"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/btnHelp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/help_background"
-            android:src="@drawable/idea"
-            android:padding="5dp"/>
-
-        <ImageView
-            android:id="@+id/btnClear"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/help_background"
-            android:src="@drawable/ic_clear"
-            android:padding="5dp"/>
-
-    </LinearLayout>
-
-
-    <!-- Podpowiedzi -->
-
-
+    <!-- Przycisk przejścia do następnego poziomu -->
     <Button
         android:id="@+id/btnNextLevel"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Dalej"
-        android:visibility="invisible" />
+        android:text="@string/ac_level_next_btn"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <!-- Panel odpowiedzi -->
-
     <LinearLayout
         android:id="@+id/answerLayoutOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnNextLevel"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNextLevel" />
 
     <LinearLayout
         android:id="@+id/answerLayoutTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/answerLayoutOne"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerLayoutOne" />
 
 
     <!-- Klawiatura -->
-
     <LinearLayout
         android:id="@+id/linearLayoutOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayoutTwo"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayoutTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayoutThree"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayoutThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

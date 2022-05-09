@@ -12,11 +12,83 @@
         <item>Nike</item>
         <item>Twitter</item>
     </string-array>
+
     <string-array name="level_2">
         <item>Shell</item>
         <item>Instagram</item>
         <item>Microsoft</item>
         <item>Puma</item>
+        <item>Pepsi</item>
+        <item>Sony</item>
+        <item>Bmw</item>
+        <item>Skype</item>
+        <item>Nasa</item>
+        <item>Kfc</item>
+    </string-array>
+
+    <string-array name="level_3">
+        <item>Levis</item>
+        <item>Pringles</item>
+        <item>Redbull</item>
+        <item>Ford</item>
+        <item>Pizza hut</item>
+        <item>Fedex</item>
+        <item>Nba</item>
+        <item>Mcdonalds</item>
+        <item>Audi</item>
+        <item>Allegro</item>
+    </string-array>
+
+    <string-array name="level_4">
+        <item>Bose</item>
+        <item>Lotos</item>
+        <item>Lays</item>
+        <item>Lamborghini</item>
+        <item>Amazon</item>
+        <item>Playstation</item>
+        <item>Starbucks</item>
+        <item>Mercedes</item>
+        <item>Calvin klein</item>
+        <item>Whatsapp</item>
+    </string-array>
+
+    <string-array name="level_5">
+        <item>Samsung</item>
+        <item>Volvo</item>
+        <item>Bluetooth</item>
+        <item>Xbox</item>
+        <item>Coca cola</item>
+        <item>Wikipedia</item>
+        <item>Ferrari</item>
+        <item>Algida</item>
+        <item>Adobe</item>
+        <item>Windows</item>
+    </string-array>
+
+    <string-array name="level_6">
+        <item>Vans</item>
+        <item>Pinterest</item>
+        <item>Champion</item>
+        <item>Orlen</item>
+        <item>Nivea</item>
+        <item>Amica</item>
+        <item>Intel</item>
+        <item>Nokia</item>
+        <item>Bosch</item>
+        <item>Marvel</item>
+    </string-array>
+
+    <string-array name="level_7">
+        <item>Mazda</item>
+        <item>Firefox</item>
+        <item>Amd</item>
+        <item>Walt disney</item>
+        <item>Ikea</item>
+        <item>Orbit</item>
+        <item>Visa</item>
+        <item>Nvidia</item>
+        <item>Lacoste</item>
+        <item>Spacex</item>
     </string-array>
 
 </resources>

@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Logo Loco</string>
+    <string name="ac_loading_image_cd_logo">Logo aplikacji</string>
+    <string name="ac_loading_loading_anim_cd">Animacja ładowania</string>
+    <string name="ac_mainmenu_lvl_nr">Poziom %d</string>
+    <string name="ac_mainmenu_factory_reset_btn">Przycisk przywracania ustawień fabrycznych</string>
+    <string name="ac_mainmenu_need_to_unlock">%d pytań do odblokowania</string>
+    <string name="ac_mainmenu_need_to_unlock_toast">Ukończ jeszcze %d pytań, aby odblokować</string>
+    <string name="ac_mainmenu_new_lvls_later">Kolejne poziomy wkrótce</string>
+    <string name="ac_mainmenu_image_cv_locker">Zablokowane</string>
+    <string name="ac_mainmenu_image_cv_unlocked">Odblokowane</string>
+    <string name="ac_mainmenu_finish_level">Ukończyłeś już poziom %d</string>
+    <string name="ac_closedialog_quest">Czy na pewno chcesz zamknąć aplikację?</string>
+    <string name="ac_closedialog_close">Zamknij</string>
+    <string name="ac_closedialog_cancel">Anuluj</string>
+    <string name="ac_helpdialog_quest">Jakiej podpowiedzi chcesz użyć?</string>
+    <string name="ac_helpdialog_show_one">Odkryj jedną literę</string>
+    <string name="ac_helpdialog_show_answer">Pokaż odpowiedż</string>
+    <string name="ac_helpdialog_cd_money_background">Tło ilości monet</string>
+    <string name="ac_helpdialog_cd_money">Ikona monety</string>
+    <string name="ac_windialog_next_btn">Dalej</string>
+    <string name="ac_windialog_cd_logo">Logo firmy ukończonego poziomu</string>
+    <string name="ac_level_cd_back">Powrót do menu głównego</string>
+    <string name="ac_level_level_txt">Poziom %d</string>
+    <string name="ac_level_quest_txt">Pytanie %d/%d</string>
+    <string name="ac_level_company_logo">Logo firmy</string>
+    <string name="ac_level_open_help_dialog">Otwórz panel podpowiedzi</string>
+    <string name="ac_level_clear_answerbox">Wyczyść wprowadzone litery</string>
+    <string name="ac_level_next_btn">Dalej</string>
+    <string name="c_level_answer_unlock_next_lvl">Odblokowano kolejny poziom</string>
+    <string name="c_level_answer_finish_lvl">Ukończyłeś poziom </string>
+    <string name="c_level_data_end_game">Koniec gry, nowe poziomy wkrótce</string>
+    <string name="c_memoryservice_not_enought_money">Nie masz wystaczającej ilości monet</string>
+    <string name="c_memoryservice_factory_reset">Przywrócono ustawienia fabryczne</string>
 </resources>

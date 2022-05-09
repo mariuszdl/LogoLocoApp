@@ -37,10 +37,13 @@ public class LevelData extends AppCompatActivity {
     /* Obraz logo */
     public static Drawable logoImage;
 
+    /* Czy pytanie jest ostatnie w poziomie */
+    public static boolean lastQuestInLevel = false;
+
     /* Metoda do pobierania danych z aplikacji */
     public static void getData(Context context) {
         getDataFromStrings(context);
-        getLogoName(context);
+        getLogoName();
         getLogoImage(context);
         MemoryService.loadHelp(context);
     }
@@ -61,27 +64,45 @@ public class LevelData extends AppCompatActivity {
                 names = res.getStringArray(R.array.level_2);
                 x = MemoryService.level_2;
                 break;
+            case 3:
+                names = res.getStringArray(R.array.level_3);
+                x = MemoryService.level_3;
+                break;
+            case 4:
+                names = res.getStringArray(R.array.level_4);
+                x = MemoryService.level_4;
+                break;
+            case 5:
+                names = res.getStringArray(R.array.level_5);
+                x = MemoryService.level_5;
+                break;
+            case 6:
+                names = res.getStringArray(R.array.level_6);
+                x = MemoryService.level_6;
+                break;
+            case 7:
+                names = res.getStringArray(R.array.level_7);
+                x = MemoryService.level_7;
+                break;
             default:
                 /* Alert wyświetlany podczas błędu aplikacji */
-                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.c_level_data_end_game, Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, MainMenu.class));
+                ((Activity) context).finish();
         }
     }
 
     /* Pobieranie nazwy firmy aktualnego pytania */
-    private static void getLogoName(Context context) {
-        if(x < names.length) {
-            /* Pobranie nazwy z tablicy aktualnego poziomu */
-            name = names[x];
+    private static void getLogoName() {
+        lastQuestInLevel = false;
 
-            /* Generowanie tekstów wyświetlanych w pasku poziomu */
-            level = "Poziom " + LevelActivity.currentLevelNumber;
-            quest = "Pytanie " + (x + 1) + "/" + names.length;
-        } else {
-          Toast.makeText(context, "Ukończyłeś poziom " + String.valueOf(LevelActivity.currentLevelNumber), Toast.LENGTH_SHORT).show();
-            ((Activity) context).startActivity(new Intent(context, MainMenu.class));
-            ((Activity) context).finish();
-            ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        }
+        /* Pobranie nazwy z tablicy aktualnego poziomu */
+        name = names[x];
+
+        /* Generowanie tekstów wyświetlanych w pasku poziomu */
+        level = res.getString(R.string.ac_level_level_txt, LevelActivity.currentLevelNumber);
+        quest = res.getString(R.string.ac_level_quest_txt, (x + 1), names.length);
+        if(x + 1 == names.length) lastQuestInLevel = true;
     }
 
     /* Pobranie obrazu logo firmy */
@@ -91,7 +112,7 @@ public class LevelData extends AppCompatActivity {
 
         /* Próba pobrania logo z katalogu aktualnego poziomu */
         try {
-            /* Towrzenie ścieżki do katalogu aktualnego poziomu */
+            /* Tworzenie ścieżki do katalogu aktualnego poziomu */
             String lvlDirectory = "Level_" + LevelActivity.currentLevelNumber;
 
             /* Pobranie danych z folderu assets */

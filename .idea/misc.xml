@@ -3,21 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/circle.xml" value="0.1965" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/help_background.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/help_variant_background.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/ic_bulb.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/ic_clear.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/ic_money.xml" value="0.2765" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/lvl_background.xml" value="0.2995" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/menu_item_background.xml" value="0.1505" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/menu_level_background.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/money_background.xml" value="0.2765" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/drawable/win_icon.xml" value="0.2765" />
-        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_level.xml" value="0.3625" />
-        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_loading.xml" value="0.1762917933130699" />
-        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_main_menu.xml" value="0.3625" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_level.xml" value="0.33" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_level_old.xml" value="0.3625" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_loading.xml" value="0.33" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/activity_main_menu_old.xml" value="0.3625" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/close_dialog.xml" value="0.3625" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/help_dialog.xml" value="0.33" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/spin_dialog.xml" value="0.3625" />
         <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/win_dialog.xml" value="0.3625" />
+        <entry key="..\:/Programming/Android/LogoLoco/app/src/main/res/layout/win_dialog_old.xml" value="0.3625" />
         <entry key="..\:/Programming/Android/Studia/LogoLoco/app/src/main/res/drawable/ic_back.xml" value="0.1925" />
         <entry key="..\:/Programming/Android/Studia/LogoLoco/app/src/main/res/drawable/ic_money.xml" value="0.1925" />
         <entry key="..\:/Programming/Android/Studia/LogoLoco/app/src/main/res/layout/activity_level.xml" value="0.3625" />

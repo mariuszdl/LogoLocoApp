@@ -2,14 +2,16 @@ package pl.lublin.wsei.logoloco;
 
 import static pl.lublin.wsei.logoloco.MemoryService.loadStatus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.widget.ProgressBar;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Klasa obsługująca ekran ładowania aplikacji
@@ -17,9 +19,11 @@ import android.widget.VideoView;
 
 public class Loading extends AppCompatActivity {
 
+    /* Logo */
+    ImageView loadingLogo;
+
     /* ProgressBar */
     VideoView mVideoView;
-    VideoView mVideoViewLogo;
 
     /* Timer */
     CountDownTimer countDownTimer;
@@ -35,22 +39,21 @@ public class Loading extends AppCompatActivity {
         /* Pobranie danych z pamięci telefonu */
         loadStatus(Loading.this);
 
-        mVideoView = (VideoView) findViewById(R.id.videoView);
-        mVideoViewLogo = (VideoView) findViewById(R.id.videoViewLogo);
+        /* Inicjalizacja widoku logo oraz ładowania */
+        loadingLogo = findViewById(R.id.loadingLogo);
+        mVideoView = findViewById(R.id.videoView);
+
+        /* Animacja logo */
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.slide_down);
+        anim.setFillAfter(true);
+        loadingLogo.startAnimation(anim);
 
         String uriPath = "android.resource://pl.lublin.wsei.logoloco/" + R.raw.loading_anim;
-        String uriPath3 = "android.resource://pl.lublin.wsei.logoloco/" + R.raw.logo_anim;
         Uri uri2 = Uri.parse(uriPath);
         mVideoView.setVideoURI(uri2);
         mVideoView.requestFocus();
         mVideoView.setZOrderOnTop(true);
         mVideoView.start();
-
-        Uri uri3 = Uri.parse(uriPath3);
-        mVideoViewLogo.setVideoURI(uri3);
-        mVideoViewLogo.requestFocus();
-        mVideoViewLogo.setZOrderOnTop(true);
-        mVideoViewLogo.start();
 
         countDownTimer =new CountDownTimer(time,time) {
 
@@ -64,12 +67,16 @@ public class Loading extends AppCompatActivity {
                 startActivity(new Intent(Loading.this, MainMenu.class));
                 finish();
 
-//                /* Nadpisanie domyślnej animacji zmiany aktywności */
-//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                /* Nadpisanie domyślnej animacji zmiany aktywności */
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         };
 
         /* Uruchomienie timera */
         countDownTimer.start();
     }
+
+    /* Zablokowanie przycisku powrotu */
+    @Override
+    public void onBackPressed() {}
 }

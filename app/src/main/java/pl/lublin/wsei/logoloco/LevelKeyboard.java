@@ -19,7 +19,7 @@ public class LevelKeyboard {
     /* Parametry przycisków z literami */
     protected static final int ILOSC_KLAWISZY_KLAWIATURY = 21;
     protected static final int MARGINESY_KLAWIATURY = 6;
-    protected static final int WIELKOSC_KLAWISZA_KLAWIATURY = 140;
+    protected static final int WIELKOSC_KLAWISZA_KLAWIATURY = 52;
 
     /* Lista przechowująca litery klawiatury */
     protected static ArrayList<Character> chars;
@@ -87,6 +87,9 @@ public class LevelKeyboard {
         ll2.removeAllViews();
         ll3.removeAllViews();
 
+        /* Wielkość klawisza w dp */
+        int sizeLetter = (int) (WIELKOSC_KLAWISZA_KLAWIATURY * context.getResources().getDisplayMetrics().density);
+
         /* Generowanie klawiatury */
         for (int i = 0; i < ILOSC_KLAWISZY_KLAWIATURY; i++) {
             if(i < (ILOSC_KLAWISZY_KLAWIATURY / 3)) {
@@ -101,7 +104,7 @@ public class LevelKeyboard {
             Button letter = new Button(context);
 
             /* Ustawianie wielkosci przycisków na klawiaturze */
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(WIELKOSC_KLAWISZA_KLAWIATURY, WIELKOSC_KLAWISZA_KLAWIATURY);
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(sizeLetter, sizeLetter);
 
             /* Ustawianie marginesów */
             p.setMargins(MARGINESY_KLAWIATURY, MARGINESY_KLAWIATURY, MARGINESY_KLAWIATURY, MARGINESY_KLAWIATURY);
@@ -200,7 +203,6 @@ public class LevelKeyboard {
         ll3.removeAllViews();
 
         ArrayList<Character> l = new ArrayList<>();
-        l.clear();
         String k = MemoryService.level_help.toString();
         int x = 0;
 

@@ -7,15 +7,19 @@
     tools:context=".Loading"
     android:background="@drawable/loading_background">
 
-    <VideoView
-        android:id="@+id/videoViewLogo"
+    <ImageView
+        android:id="@+id/loadingLogo"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/logo_name_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/ac_loading_image_cd_logo" />
 
     <VideoView
         android:id="@+id/videoView"
@@ -24,6 +28,7 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/ac_loading_loading_anim_cd"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

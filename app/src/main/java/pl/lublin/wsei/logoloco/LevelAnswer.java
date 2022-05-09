@@ -1,5 +1,6 @@
 package pl.lublin.wsei.logoloco;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +12,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,7 +27,7 @@ public class LevelAnswer {
 
     /* Parametry pól w panelu odpowiedzi */
     protected static final int MARGINESY_POLA_ODP = 4;
-    protected static final int WIELKOSC_POLA_ODP = 120;
+    protected static final int WIELKOSC_POLA_ODP = 44;
 
     /* Dialog wyświetlany po podaniu prawisłowej odpowiedzi */
     protected static Dialog winDialog;
@@ -49,6 +49,9 @@ public class LevelAnswer {
         /* Zmienna przechowująca aktualny layout */
         LinearLayout lla;
 
+        /* Wielkość pola odpowiedzi w dp */
+        int sizeAns = (int) (WIELKOSC_POLA_ODP * context.getResources().getDisplayMetrics().density);
+
         /* Generowanie panelu odpowiedzi */
         for (int i = 0; i < LevelData.name.length(); i++) {
             if(i < 8) {
@@ -61,7 +64,7 @@ public class LevelAnswer {
             TextView tv = new TextView(context);
 
             /* Ustawianie wielkosci pola w panelu odpowiedzi */
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(WIELKOSC_POLA_ODP, WIELKOSC_POLA_ODP);
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(sizeAns, sizeAns);
 
             /* Ustawianie marginesów */
             p.setMargins(MARGINESY_POLA_ODP,MARGINESY_POLA_ODP,MARGINESY_POLA_ODP,MARGINESY_POLA_ODP);
@@ -160,6 +163,7 @@ public class LevelAnswer {
     }
 
     /* Zachowanie aplikacji po podaniu poprawnej odpowiedzi */
+    @SuppressLint("SetTextI18n")
     public static void PassLevel(Context context) {
         /* Zapisanie postępu w pamięci telefonu */
         if(!block) {
@@ -168,6 +172,9 @@ public class LevelAnswer {
         }
 
         MemoryService.winHelp(context);
+
+        MainMenu.questCounter = MemoryService.level_1 + MemoryService.level_2 + MemoryService.level_3 +
+                MemoryService.level_4 + MemoryService.level_5 + MemoryService.level_6 + MemoryService.level_7;
 
         /* Inicjalizacja dialogu */
         winDialog = new Dialog(context);
@@ -184,14 +191,57 @@ public class LevelAnswer {
         TextView wt = winDialog.findViewById(R.id.winTextView);
         wt.setText(LevelData.name);
 
+        TextView itv = winDialog.findViewById(R.id.infoTextView);
+        itv.setText("");
+
+        if(MainMenu.questCounter % 9 == 0 && LevelActivity.currentLevelNumber < MainMenu.LEVELCOUNT) {
+            itv.setText(R.string.c_level_answer_unlock_next_lvl);
+        }
+
+        int[] levels = new int[MainMenu.LEVELCOUNT];
+        levels[0] = MemoryService.level_1;
+        levels[1] = MemoryService.level_2;
+        levels[2] = MemoryService.level_3;
+        levels[3] = MemoryService.level_4;
+        levels[4] = MemoryService.level_5;
+        levels[5] = MemoryService.level_6;
+        levels[6] = MemoryService.level_7;
+
+        if(LevelData.lastQuestInLevel) {
+            itv.setText(context.getString(R.string.c_level_answer_finish_lvl) + " " + LevelActivity.currentLevelNumber);
+            int idLvl = LevelActivity.currentLevelNumber;
+            boolean isNext = false;
+            for (int i = idLvl; i < MainMenu.LEVELCOUNT; i++) {
+                if(levels[i] < 10) {
+                    idLvl = i;
+                    isNext = true;
+                    break;
+                }
+            }
+
+            if(!isNext) {
+                for (int i = 0; i < idLvl; i++) {
+                    if(levels[i] < 10) {
+                        idLvl = i;
+                        isNext = true;
+                    }
+                }
+                if (!isNext) {
+                    Toast.makeText(context, context.getString(R.string.c_level_data_end_game), Toast.LENGTH_SHORT).show();
+                    context.startActivity(new Intent(context, MainMenu.class));
+                    ((Activity) context).finish();
+                }
+            }
+
+            LevelActivity.currentLevelNumber = idLvl + 1;
+        }
+
         LevelActivity.btnHelp.setVisibility(View.INVISIBLE);
         LevelActivity.btnClear.setVisibility(View.INVISIBLE);
         LevelActivity.btnNextLevel.setVisibility(View.VISIBLE);
 
         /* Obsługa przycisku kontynuacji */
-        winDialog.findViewById(R.id.btnNext).setOnClickListener(view -> {
-            nextLevel(context);
-        });
+        winDialog.findViewById(R.id.btnNext).setOnClickListener(view -> nextLevel(context));
 
         /* Wyświetlenie okna dialogowego */
         winDialog.show();

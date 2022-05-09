@@ -4,6 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.widget.TextView;
+
+/**
+ * Klasa obsługująca panel podpowiedzi
+ */
 
 public class HelpService {
 
@@ -20,6 +25,12 @@ public class HelpService {
 
         /* Ustawienie przezroczystości tła wyświetlanego dialogu*/
         helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        TextView showOneTextView = helpDialog.findViewById(R.id.showOneTextView);
+        TextView showAnswerTextView = helpDialog.findViewById(R.id.showAnswerTextView);
+
+        showOneTextView.setText(String.valueOf(MemoryService.SHOWONE));
+        showAnswerTextView.setText(String.valueOf(MemoryService.SHOWANSWER));
 
         /* Obsługa przycisku kupna jednej litery */
         helpDialog.findViewById(R.id.showOneHelp).setOnClickListener(view -> {
@@ -40,5 +51,4 @@ public class HelpService {
         /* Wyświetlenie okna dialogowego */
         helpDialog.show();
     }
-
 }

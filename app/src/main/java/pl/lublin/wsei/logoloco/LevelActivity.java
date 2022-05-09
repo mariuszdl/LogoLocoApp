@@ -1,9 +1,9 @@
 package pl.lublin.wsei.logoloco;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -87,10 +87,14 @@ public class LevelActivity extends AppCompatActivity {
         /* Generowanie i wyświetlanie panelu odpowiedzi */
         LevelAnswer.answerBox(LevelActivity.this);
 
-        btnHelp.setOnClickListener(view -> HelpService.showHelpVariants(LevelActivity.this));
+        btnHelp.setOnClickListener(view -> {
+            btnHelp.startAnimation(AnimationUtils.loadAnimation(this, R.anim.onclick));
+            HelpService.showHelpVariants(LevelActivity.this);
+        });
 
         /* Usuwanie wszystkich znaków z panelu odpowiedzi */
         btnClear.setOnClickListener(view -> {
+            btnClear.startAnimation(AnimationUtils.loadAnimation(this, R.anim.onclick));
             for(int i = 0; i < LevelData.name.length(); i++) {
                 LevelKeyboard.word[i] = '$';
                 LevelKeyboard.reloadKeyboardId(LevelKeyboard.id[i]);
